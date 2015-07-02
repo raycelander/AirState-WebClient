@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+    <widget xmlns   = "http://www.w3.org/ns/widgets"
+        xmlns:gap   = "http://phonegap.com/ns/1.0"
+        id          = "com.raycelander.airstate"
+        versionCode = "1" 
+        version     = "1.0.0" >
+    <name>Airstate</name>
+
+    <description>
+        Airstate. The Arduino based environment control
+    </description>
+
+    <author href="https://build.phonegap.com" email="r.hirter@gmail.com">
+        Rainer Hirter
+    </author>
+    <gap:plugin name="br.com.paveisitemas.splashscreen" version="2.1.1" />
+    <preference name="SplashScreen" value="splash.png" />
+    <preference name="SplashScreenDelay" value="10000" />
+    <preference name="SplashMaintainAspectRatio" value="true" />
+</widget>

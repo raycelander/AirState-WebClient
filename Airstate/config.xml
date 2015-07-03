@@ -13,6 +13,7 @@
     <author href="https://build.phonegap.com" email="r.hirter@gmail.com">
         Rainer Hirter
     </author>
+    <icon src="icon.png" />
     <gap:plugin name="br.com.paveisitemas.splashscreen" version="2.1.1" />
     <preference name="SplashScreen" value="splash.png" />
     <preference name="SplashScreenDelay" value="10000" />

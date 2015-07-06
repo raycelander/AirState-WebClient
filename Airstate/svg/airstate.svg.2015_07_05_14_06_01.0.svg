@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="509.15625"
+   height="509.15625"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="airstate.svg">
+  <defs
+     id="defs4" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.49497475"
+     inkscape:cx="516.94384"
+     inkscape:cy="42.510014"
+     inkscape:document-units="px"
+     inkscape:current-layer="text3755"
+     showgrid="false"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:window-width="1846"
+     inkscape:window-height="1058"
+     inkscape:window-x="66"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Ebene 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-124.21875,-358.375)">
+    <ellipse
+       style="fill:#009fda;fill-opacity:1;stroke:#ffffff;stroke-width:0.57116175;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="path2985"
+       inkscape:export-filename="C:\Temp\favicon.png"
+       inkscape:export-xdpi="2.8282084"
+       inkscape:export-ydpi="2.8282084"
+       cx="195.09903"
+       cy="796.66785"
+       rx="70.580559"
+       ry="70.566696" />
+    <g
+       style="font-size:459.75323486px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Gill Sans Ultra Bold;-inkscape-font-specification:Gill Sans Ultra Bold"
+       id="text3755">
+      <path
+         d="m 176.26363,838.4103 -43.79856,0 32.83525,-95.97943 61.011,0 32.85477,95.97943 -43.75559,0 -5.38987,-15.80328 -28.36322,0 z m 13.29892,-40.35752 12.56856,0 -6.296,-20.71569 z"
+         id="path2998"
+         inkscape:connector-curvature="0" />
+    </g>
+  </g>
+</svg>

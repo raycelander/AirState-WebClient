@@ -67,14 +67,23 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="css\airstate.css" />
+    <Content Include="css\genericons.css" />
+    <Content Include="css\Genericons.svg" />
     <Content Include="jsx\airstate.jsx" />
     <Content Include="jsx\highchart-component.jsx" />
     <Content Include="jsx\pom-component.jsx" />
     <Content Include="jsx\pom-manipulate-component.jsx" />
+    <Content Include="css\Genericons.eot" />
+    <Content Include="css\Genericons.ttf" />
+    <Content Include="css\Genericons.woff" />
+    <None Include="Properties\PublishProfiles\airstate - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\airstate - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\airstate.pubxml" />
+    <Content Include="js\hammer.2.0.4.js" />
     <Content Include="js\jquery-2.1.4.min.js" />
     <Content Include="js\JSXTransformer-0.13.3.js" />
     <Content Include="js\react-0.13.3.min.js" />
+    <Content Include="js\wptr.1.1.js" />
     <Content Include="splash.png" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>

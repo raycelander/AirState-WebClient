@@ -84,6 +84,7 @@
     <Content Include="js\JSXTransformer-0.13.3.js" />
     <Content Include="js\react-0.13.3.min.js" />
     <Content Include="js\wptr.1.1.js" />
+    <Content Include="res\screen\android\splash.png" />
     <Content Include="splash.png" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -153,6 +154,7 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

@@ -22,5 +22,5 @@
     <gap:splash gap:platform="android" gap:qualifier="port-xhdpi" src="res/screen/android/splash-xhdpi.png" />
     <gap:splash src="splash.png" />
     <preference name="SplashScreenDelay" value="4000" />
-
+    <preference name="fullscreen" value="true" />
 </widget>

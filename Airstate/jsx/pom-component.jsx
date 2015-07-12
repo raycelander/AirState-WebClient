@@ -68,4 +68,7 @@ var PointOfMeasureComponent = React.createClass({
             </div>
         );
     },
+	refresh: function(){
+		console.log("refreshing");
+	}
 });

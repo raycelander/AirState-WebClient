@@ -14,8 +14,6 @@
         Rainer Hirter
     </author>
     <icon src="icon.png" />
-    <gap:plugin name="br.com.paveisitemas.splashscreen" version="2.1.1" />
-    <preference name="SplashScreen" value="splash.png" />
+    <gap:plugin name="br.com.paveisitemas.splashscreen" />
     <preference name="SplashScreenDelay" value="10000" />
-    <preference name="SplashMaintainAspectRatio" value="true" />
 </widget>

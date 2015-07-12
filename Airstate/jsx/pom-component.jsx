@@ -33,7 +33,7 @@ var PointOfMeasureComponent = React.createClass({
             currentTempPostCounter.start();
             currentHumCounter.start();
              clearInterval(refreshIntervalId);
-         }, 4000);
+         }, 2000);
     },
     getDefaultProps: function () {
         return {

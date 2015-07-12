@@ -21,6 +21,6 @@
     <gap:splash gap:platform="android" gap:qualifier="port-hdpi" src="res/screen/android/splash.png" />
     <gap:splash gap:platform="android" gap:qualifier="port-xhdpi" src="res/screen/android/splash.png" />
     <gap:splash src="splash.png" />
-    <preference name="SplashScreenDelay" value="10000" />
+    <preference name="SplashScreenDelay" value="4000" />
 
 </widget>

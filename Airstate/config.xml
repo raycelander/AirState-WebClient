@@ -16,10 +16,10 @@
     <icon src="icon.png" />
     <gap:plugin name="org.apache.cordova.splashscreen" />
     <preference name="SplashScreen" value="screen"/>
-    <gap:splash gap:platform="android" gap:qualifier="port-ldpi" src="res/screen/android/splash.png" />
-    <gap:splash gap:platform="android" gap:qualifier="port-mdpi" src="res/screen/android/splash.png" />
-    <gap:splash gap:platform="android" gap:qualifier="port-hdpi" src="res/screen/android/splash.png" />
-    <gap:splash gap:platform="android" gap:qualifier="port-xhdpi" src="res/screen/android/splash.png" />
+    <gap:splash gap:platform="android" gap:qualifier="port-ldpi" src="res/screen/android/splash-ldpi.png" />
+    <gap:splash gap:platform="android" gap:qualifier="port-mdpi" src="res/screen/android/splash-mdpi.png" />
+    <gap:splash gap:platform="android" gap:qualifier="port-hdpi" src="res/screen/android/splash-hdpi.png" />
+    <gap:splash gap:platform="android" gap:qualifier="port-xhdpi" src="res/screen/android/splash-xhdpi.png" />
     <gap:splash src="splash.png" />
     <preference name="SplashScreenDelay" value="4000" />
 

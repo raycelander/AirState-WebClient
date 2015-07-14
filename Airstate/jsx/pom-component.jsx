@@ -13,6 +13,9 @@ var PointOfMeasureComponent = React.createClass({
     componentDidUpdate : function () {
        this.countUp();
     },
+    componentWillReceiveProps: function () {
+        this.updateData();
+    }, 
     getDefaultProps: function () {
         return {
             station: ''
@@ -52,6 +55,7 @@ var PointOfMeasureComponent = React.createClass({
         );
     },
 	updateData: function(){
+        console.log("getting datas...");
 	    var m = new Measurements();
         var c = m.getCurrent(this.props.station);
         var temp =  c["temp"].toString();

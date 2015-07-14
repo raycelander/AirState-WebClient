@@ -26,18 +26,18 @@
             </div>
           );
         },
-        onTouchEnd: function(event) {
-          if (isValidPullDown){
-            this.refs.pulldown.getDOMNode().style.height = "0px";
-            React.render(<AirState/>, document.getElementById('airstate'));
-          }
-        },
         handleTouchStart: function(event) {
             isValidPullDown = window.scrollY == 0;
             pullDownStartPos = event.touches[0].clientY;
         },
         handleTouchMove: function(event) {
             this.refs.pulldown.getDOMNode().style.height = event.touches[0].clientY - pullDownStartPos + "px";
+        },
+        onTouchEnd: function(event) {
+          if (isValidPullDown){
+            this.refs.pulldown.getDOMNode().style.height = "0px";
+            React.render(<AirState/>, document.getElementById('airstate'));
+          }
         },
       });
 React.initializeTouchEvents(true);

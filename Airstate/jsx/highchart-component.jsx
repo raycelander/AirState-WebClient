@@ -44,7 +44,23 @@ var HighchartsBar = React.createClass({
             });
         });
   },
+  componentWillReceiveProps: function () {
+    this.updateData();
+  },
   componentDidMount: function() {
+    this.updateData();
+  },
+  getDefaultProps: function () {
+      return {
+          measurement: 'temp'
+      }
+  },
+  render: function() {
+    return (
+      React.DOM.div({className: "chart", ref: "chartNode"})
+    );
+  },
+  updateData: function(){
         dataSeries = new Array();
         var data = new Measurements().getMeasurements();
         var stations = Object.getOwnPropertyNames(data);
@@ -61,8 +77,7 @@ var HighchartsBar = React.createClass({
     			     datas.push([d,data[entry][k][m][measurement]]);
         	       });
             });
-            console.log(data);
-            console.log(datas.sort());
+            datas.sort();
             dataSeries.push({
                 name:entry,
                 type:'spline',
@@ -71,17 +86,5 @@ var HighchartsBar = React.createClass({
             });
         });
         this.renderChart();
-        console.log("rendering chart " + this.props.measurement);
-  },
-  getDefaultProps: function () {
-      return {
-          measurement: 'temp'
-      }
-  },
-  render: function() {
-      console.log("rendering " + measurementTitle);
-    return (
-      React.DOM.div({className: "chart", ref: "chartNode"})
-    );
   }
 });

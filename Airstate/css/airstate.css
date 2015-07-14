@@ -2,9 +2,8 @@
 html, body { height: 100%; }
 body { margin:0;}
 
-#logo{
+.header{
 	padding-top:10px;
-	padding-bottom:40px;
 }
 ul{
 	padding:20px 0px 60px 0px;

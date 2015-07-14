@@ -6,7 +6,7 @@
             <div className="airstate container" onTouchEnd={this.onTouchEnd} onTouchStart={this.handleTouchStart} onTouchMove={this.handleTouchMove}>
               <div className="row pulldown" ref="pulldown"></div>
               <div className="row">
-                <div className="col-md-1">
+                <div className="col-md-1 header">
                       <img src="svg/airstate_full.svg" width="300" />
                  </div>
               </div>

@@ -1,33 +1,17 @@
 var PointOfMeasureComponent = React.createClass({
-
     getInitialState: function(){
        return {
          currentData: Object,
        }
     },
     componentWillMount: function () {
-        var m = new Measurements();
-        var c = m.getCurrent(this.props.station);
-        var temp =  c["temp"].toString();
-        var tempPre = temp.substring(0,temp.indexOf("."));
-        var tempPost = temp.substring(temp.indexOf(".")+1);
-        var tempMax = m.getMaxTemp(this.props.station);
-        var tempMin = m.getMinTemp(this.props.station);
-        var hum =   c["hum"].toFixed(0).toString();
-       
-        this.setState({ currentTempPre: tempPre,
-                        currentTempPost: tempPost,
-                        currentHum: hum,
-                        displayTempPre: 0,
-                        displayTempPost: 0,
-                        displayTempMax: tempMax,
-                        displayTempMin: tempMin,
-                        displayHum: 0,
-                        defaultView: true
-                    });
+      this.updateData();
     },
     componentDidMount : function(){
         this.countUp();
+    },
+    componentDidUpdate : function () {
+       this.countUp();
     },
     getDefaultProps: function () {
         return {
@@ -56,8 +40,8 @@ var PointOfMeasureComponent = React.createClass({
                                         </div>
                                     </div>
                                : <div className="small">
-                                    <div>max:&nbsp;<b>{this.state.displayTempMax}°C</b>&nbsp;12:23</div>
-                                    <div>min:&nbsp;<b>{this.state.displayTempMin}</b>°C&nbsp;2:23</div>
+                                    <div><b>&nbsp;&#8679;&nbsp;</b>{this.state.displayTempMax.temp}°<span>&nbsp;&nbsp;</span><span>{this.state.displayTempMax.time}</span></div>
+                                    <div><b>&nbsp;&#8681;&nbsp;</b>{this.state.displayTempMin.temp}°<span>&nbsp;&nbsp;</span><span>{this.state.displayTempMin.time}</span></div>
                                </div> }
                           </div>
                         </div>
@@ -67,8 +51,26 @@ var PointOfMeasureComponent = React.createClass({
             </div>
         );
     },
-	refresh: function(){
-		console.log("refreshing");
+	updateData: function(){
+	    var m = new Measurements();
+        var c = m.getCurrent(this.props.station);
+        var temp =  c["temp"].toString();
+        var tempPre = temp.substring(0,temp.indexOf("."));
+        var tempPost = temp.substring(temp.indexOf(".")+1);
+        var tempMax = m.getMaxTemp(this.props.station);
+        var tempMin = m.getMinTemp(this.props.station);
+        var hum =   c["hum"].toFixed(0).toString();
+       
+        this.setState({ currentTempPre: tempPre,
+                        currentTempPost: tempPost,
+                        currentHum: hum,
+                        displayTempPre: 0,
+                        displayTempPost: 0,
+                        displayTempMax: tempMax,
+                        displayTempMin: tempMin,
+                        displayHum: 0,
+                        defaultView: true
+                    });
 	},
     countUp: function(){
          var options = {

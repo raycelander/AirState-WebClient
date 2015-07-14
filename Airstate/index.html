@@ -27,35 +27,7 @@
 </head>
 
 <body>
-    <div id="ptr">
-        <div class="loading">
-            <span id="l1"></span>
-            <span id="l2"></span>
-            <span id="l3"></span>
-        </div>
-    </div>
-    <div id="content">
-        <div id="airstate" style="clear:both"></div>
-    </div>
-    <script src="js/hammer.2.0.4.js"></script>
-    <script src="js/wptr.1.1.js"></script>
-
-    <script>
-        window.onload = function () {
-            WebPullToRefresh.init({
-                loadingFunction: exampleLoadingFunction
-            });
-        };
-        var exampleLoadingFunction = function () {
-            return new Promise(function (resolve, reject) {
-                // Run some async loading code here
-
-                if (true /* if the loading worked */) {
-                    location.reload();
-                } 
-            });
-        };
-    </script>
+    <div id="airstate" style="clear:both;padding-top:10px;"></div>
 </body>
 
 <script src="js/highchart/highcharts.js"></script>

@@ -77,7 +77,7 @@ var PointOfMeasureComponent = React.createClass({
                     });
 	},
     countUp: function(){
-         var options = {
+        var options = {
               useEasing : true, 
               useGrouping : true, 
               separator : ',', 
@@ -85,15 +85,13 @@ var PointOfMeasureComponent = React.createClass({
               prefix : '', 
               suffix : '' 
             };
-        var currentTempPreCounter = new CountUp("currentTempPre", 0, this.state.currentTempPre, 0, 1.5, options);
-        var currentTempPostCounter = new CountUp("currentTempPost", 0, this.state.currentTempPost, 0, 1.5, options);
-        var currentHumCounter = new CountUp("currentHum", 0, this.state.currentHum, 0, 1.5, options);
-        var refreshIntervalId = setInterval(function(){ 
-            currentTempPreCounter.start();
-            currentTempPostCounter.start();
-            currentHumCounter.start();
-             clearInterval(refreshIntervalId);
-         }, 500);
+        var currentTempPreCounter = new CountUp("currentTempPre", 0, this.state.currentTempPre, 0, 2, options);
+        var currentTempPostCounter = new CountUp("currentTempPost", 0, this.state.currentTempPost, 0, 2, options);
+        var currentHumCounter = new CountUp("currentHum", 0, this.state.currentHum, 0, 2, options);
+
+        currentTempPreCounter.start();
+        currentTempPostCounter.start();
+        currentHumCounter.start();
     },
     handleClick: function(event) {
         this.setState({defaultView : !this.state.defaultView});

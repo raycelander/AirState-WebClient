@@ -5,15 +5,26 @@ var PointOfMeasureComponent = React.createClass({
        }
     },
     componentWillMount: function () {
+     this.setState({ currentTempPre: 0,
+                currentTempPost: 0,
+                currentHum: 0,
+                displayTempPre: 0,
+                displayTempPost: 0,
+                displayTempMax: 0,
+                displayTempMin: 0,
+                displayHum: 0,
+                defaultView: true
+            });
       this.updateData();
     },
     componentDidMount : function(){
-        this.countUp();
+        //this.countUp();
     },
     componentDidUpdate : function () {
-       this.countUp();
+       //this.countUp();
     },
     componentWillReceiveProps: function () {
+       //console.log("componentWillReceiveProps");
         this.updateData();
     }, 
     getDefaultProps: function () {
@@ -43,8 +54,8 @@ var PointOfMeasureComponent = React.createClass({
                                         </div>
                                     </div>
                                : <div className="small">
-                                    <div><b>&nbsp;&#8679;&nbsp;</b>{this.state.displayTempMax.temp}°<span>&nbsp;&nbsp;</span><span>{this.state.displayTempMax.time}</span></div>
-                                    <div><b>&nbsp;&#8681;&nbsp;</b>{this.state.displayTempMin.temp}°<span>&nbsp;&nbsp;</span><span>{this.state.displayTempMin.time}</span></div>
+                                    <div><b>&nbsp;&#8679;&nbsp;</b>{this.state.displayTempMax.val}°<span>&nbsp;&nbsp;</span><span>{this.state.displayTempMax.time}</span></div>
+                                    <div><b>&nbsp;&#8681;&nbsp;</b>{this.state.displayTempMin.val}°<span>&nbsp;&nbsp;</span><span>{this.state.displayTempMin.time}</span></div>
                                </div> }
                           </div>
                         </div>
@@ -55,29 +66,36 @@ var PointOfMeasureComponent = React.createClass({
         );
     },
 	updateData: function(){
+        var app = this;
         console.log("getting datas...");
-	    var m = new Measurements();
-        var c = m.getCurrent(this.props.station);
-        var temp =  c["temp"].toString();
-        var tempPre = temp.substring(0,temp.indexOf("."));
-        var tempPost = temp.substring(temp.indexOf(".")+1);
-        var tempMax = m.getMaxTemp(this.props.station);
-        var tempMin = m.getMinTemp(this.props.station);
-        var hum =   c["hum"].toFixed(0).toString();
-       
-        this.setState({ currentTempPre: tempPre,
-                        currentTempPost: tempPost,
-                        currentHum: hum,
-                        displayTempPre: 0,
-                        displayTempPost: 0,
-                        displayTempMax: tempMax,
-                        displayTempMin: tempMin,
-                        displayHum: 0,
-                        defaultView: true
-                    });
-	},
+        new Measurements().getCurrent(this.props.station).then(function(result){
+            console.log("current datas received: " + result.temp);    
+            
+            var temp =  result.temp.toString();
+            var tempPre = temp.substring(0,temp.indexOf("."));
+            var tempPost = temp.substring(temp.indexOf(".")+1);
+            var hum =   result.hum.toFixed(0).toString();
+           
+            app.setState({ currentTempPre: tempPre,
+                            currentTempPost: tempPost,
+                            currentHum: hum,
+                            displayTempPre: 0,
+                            displayTempPost: 0,
+                            displayHum: 0,
+                        });
+            app.countUp();
+        });
+        new Measurements().getPeakTemp(this.props.station).then(function(result){
+            console.log("peak datas received: ");
+            console.log(result);
+               app.setState({ 
+                            displayTempMax: result.max,
+                            displayTempMin: result.min,
+                        });
+        });
+  	},
     countUp: function(){
-        var options = {
+         var options = {
               useEasing : true, 
               useGrouping : true, 
               separator : ',', 
@@ -85,13 +103,15 @@ var PointOfMeasureComponent = React.createClass({
               prefix : '', 
               suffix : '' 
             };
-        var currentTempPreCounter = new CountUp("currentTempPre", 0, this.state.currentTempPre, 0, 2, options);
-        var currentTempPostCounter = new CountUp("currentTempPost", 0, this.state.currentTempPost, 0, 2, options);
-        var currentHumCounter = new CountUp("currentHum", 0, this.state.currentHum, 0, 2, options);
-
-        currentTempPreCounter.start();
-        currentTempPostCounter.start();
-        currentHumCounter.start();
+        var currentTempPreCounter = new CountUp("currentTempPre", 0, this.state.currentTempPre, 0, 1.5, options);
+        var currentTempPostCounter = new CountUp("currentTempPost", 0, this.state.currentTempPost, 0, 1.5, options);
+        var currentHumCounter = new CountUp("currentHum", 0, this.state.currentHum, 0, 1.5, options);
+        var refreshIntervalId = setInterval(function(){ 
+            currentTempPreCounter.start();
+            currentTempPostCounter.start();
+            currentHumCounter.start();
+             clearInterval(refreshIntervalId);
+         }, 500);
     },
     handleClick: function(event) {
         this.setState({defaultView : !this.state.defaultView});

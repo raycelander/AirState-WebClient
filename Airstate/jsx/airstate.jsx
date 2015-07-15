@@ -32,6 +32,7 @@
         },
         handleTouchMove: function(event) {
             this.refs.pulldown.getDOMNode().style.height = event.touches[0].clientY - pullDownStartPos + "px";
+            console.log(this.refs.pulldown.getDOMNode().style.height);
         },
         onTouchEnd: function(event) {
           if (isValidPullDown){

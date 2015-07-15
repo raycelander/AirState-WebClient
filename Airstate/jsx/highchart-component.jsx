@@ -61,30 +61,32 @@ var HighchartsBar = React.createClass({
     );
   },
   updateData: function(){
-        dataSeries = new Array();
-        var data = new Measurements().getMeasurements();
-        var stations = Object.getOwnPropertyNames(data);
-        var measurement = this.props.measurement;
-        measurementTitle = measurement == 'temp'?'Temperature':'Humidity';
-        format = measurement == 'temp'?'{value} °C':'{value} %';
-        var i = 0;
-        stations.forEach(function(entry) {
-            var datas = [];
-            var cat = [];
-            Object.keys(data[entry]).map(function(k){
-               	Object.keys(data[entry][k]).map(function(m){
-                   var d = Date.parse(data[entry][k][m]["datetime"] + " UTC");
-    			     datas.push([d,data[entry][k][m][measurement]]);
-        	       });
+      var app = this;
+       new Measurements().getMeasurements().then(function(data){
+            dataSeries = new Array();   
+            var stations = Object.getOwnPropertyNames(data);
+            var measurement = app.props.measurement;
+            measurementTitle = measurement == 'temp'?'Temperature':'Humidity';
+            format = measurement == 'temp'?'{value} °C':'{value} %';
+            var i = 0;
+            stations.forEach(function(entry) {
+                var datas = [];
+                var cat = [];
+                Object.keys(data[entry]).map(function(k){
+                   	Object.keys(data[entry][k]).map(function(m){
+                       var d = Date.parse(data[entry][k][m]["datetime"] + " UTC");
+        			     datas.push([d,data[entry][k][m][measurement]]);
+            	       });
+                });
+                datas.sort();
+                dataSeries.push({
+                    name:entry,
+                    type:'spline',
+                    tooltip: measurement == 'temp'?'°C':'%',
+                    data: datas
+                });
             });
-            datas.sort();
-            dataSeries.push({
-                name:entry,
-                type:'spline',
-                tooltip: measurement == 'temp'?'°C':'%',
-                data: datas
-            });
-        });
-        this.renderChart();
+            app.renderChart();
+       });
   }
 });

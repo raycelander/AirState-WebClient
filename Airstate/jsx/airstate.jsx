@@ -33,9 +33,21 @@
         handleTouchMove: function(event) {
           if (isValidPullDown){
             this.refs.pulldown.getDOMNode().style.height = event.touches[0].clientY - pullDownStartPos + "px";
+            if (event.touches[0].clientY - pullDownStartPos > 40){
+              this.refs.pulldown.getDOMNode().innerText = "release to refresh";
+            }else{
+              this.refs.pulldown.getDOMNode().innerText = "";
+            }
           }
         },
         onTouchEnd: function(event) {
+          this.refs.pulldown.getDOMNode().innerText = "";
+          if (event.changedTouches[0].clientY - pullDownStartPos < 40){
+            this.refs.pulldown.getDOMNode().style.height = "0px";
+            isValidPullDown = false;
+            return;
+          }
+          
           if (isValidPullDown){
             this.refs.pulldown.getDOMNode().style.height = "0px";
             React.render(<AirState/>, document.getElementById('airstate'));

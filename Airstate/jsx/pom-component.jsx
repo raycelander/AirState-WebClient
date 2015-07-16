@@ -17,14 +17,7 @@ var PointOfMeasureComponent = React.createClass({
             });
       this.updateData();
     },
-    componentDidMount : function(){
-        //this.countUp();
-    },
-    componentDidUpdate : function () {
-       //this.countUp();
-    },
     componentWillReceiveProps: function () {
-       //console.log("componentWillReceiveProps");
         this.updateData();
     }, 
     getDefaultProps: function () {
@@ -67,10 +60,7 @@ var PointOfMeasureComponent = React.createClass({
     },
 	updateData: function(){
         var app = this;
-        console.log("getting datas...");
         new Measurements().getCurrent(this.props.station).then(function(result){
-            console.log("current datas received: " + result.temp);    
-            
             var temp =  result.temp.toString();
             var tempPre = temp.substring(0,temp.indexOf("."));
             var tempPost = temp.substring(temp.indexOf(".")+1);
@@ -86,12 +76,10 @@ var PointOfMeasureComponent = React.createClass({
             app.countUp();
         });
         new Measurements().getPeakTemp(this.props.station).then(function(result){
-            console.log("peak datas received: ");
-            console.log(result);
-               app.setState({ 
-                            displayTempMax: result.max,
-                            displayTempMin: result.min,
-                        });
+           app.setState({ 
+                        displayTempMax: result.max,
+                        displayTempMin: result.min,
+                    });
         });
   	},
     countUp: function(){
@@ -103,14 +91,14 @@ var PointOfMeasureComponent = React.createClass({
               prefix : '', 
               suffix : '' 
             };
-        var currentTempPreCounter = new CountUp("currentTempPre", 0, this.state.currentTempPre, 0, 1.5, options);
-        var currentTempPostCounter = new CountUp("currentTempPost", 0, this.state.currentTempPost, 0, 1.5, options);
-        var currentHumCounter = new CountUp("currentHum", 0, this.state.currentHum, 0, 1.5, options);
+        var currentTempPreCounter = new CountUp("currentTempPre", 0, parseInt(this.state.currentTempPre), 0, 1.5, options);
+        var currentTempPostCounter = new CountUp("currentTempPost", 0, parseInt(this.state.currentTempPost), 0, 1.5, options);
+        var currentHumCounter = new CountUp("currentHum", 0, parseInt(this.state.currentHum), 0, 1.5, options);
         var refreshIntervalId = setInterval(function(){ 
             currentTempPreCounter.start();
             currentTempPostCounter.start();
             currentHumCounter.start();
-             clearInterval(refreshIntervalId);
+            clearInterval(refreshIntervalId);
          }, 500);
     },
     handleClick: function(event) {

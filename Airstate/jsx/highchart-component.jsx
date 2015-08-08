@@ -66,8 +66,19 @@ var HighchartsBar = React.createClass({
             dataSeries = new Array();   
             var stations = Object.getOwnPropertyNames(data);
             var measurement = app.props.measurement;
-            measurementTitle = measurement == 'temp'?'Temperature':'Humidity';
-            format = measurement == 'temp'?'{value} °C':'{value} %';
+            var unit;
+            if (measurement == "temp"){
+                measurementTitle = 'Temperature';
+                unit = "°C"
+            }else if (measurement == "hum"){
+                measurementTitle = 'Humidity';
+                unit=  "%";
+            }else if (measurement == "hpa"){
+                measurementTitle = 'Air Pressure';
+                unit = "hPa";
+            }
+
+            format = "{value} " + unit;    
             var i = 0;
             stations.forEach(function(entry) {
                 var datas = [];
@@ -82,7 +93,7 @@ var HighchartsBar = React.createClass({
                 dataSeries.push({
                     name:entry,
                     type:'spline',
-                    tooltip: measurement == 'temp'?'°C':'%',
+                    tooltip:unit,
                     data: datas
                 });
             });

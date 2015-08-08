@@ -23,6 +23,11 @@
                   <HighchartsBar measurement="hum" />
                 </div>
               </div>
+               <div className="row">
+                <div className="col-md-12">
+                  <HighchartsBar measurement="hpa" />
+                </div>
+              </div>
             </div>
           );
         },

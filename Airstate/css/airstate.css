@@ -3,7 +3,13 @@ html, body { height: 100%; }
 body { margin:0;}
 
 .header{
-	padding-top:10px;
+	padding:10px 10px 10px 26px;
+    background-color:#009FDA;
+    width:100%;
+}
+.container{
+    margin:0px !important;
+    width:100%;
 }
 ul{
 	padding:20px 0px 60px 0px;
@@ -13,92 +19,47 @@ ul li{
 	list-style-type: none;
 	padding-right: 20px;
 }
-
-/* Thermometer */
-
-.thermometer { margin: 100px 0px 10px 0px;font-family: 'Dosis';color: #555; }
-.de .den, .de .dene, .de .denem, .de .deneme { position: absolute;  left: 50%; top: 50%; }
-.de {
-    position: relative;
-    height: 160px;
+hr{
+    border-top:1px solid #009FDA;
+    margin:2px 0px 2px 0px;
 }
-.den {
-    position: relative;
-    width: 170px;
-    height: 170px;
-    margin: -126px 0 0 -50%;
-    border-radius: 100%;
-    box-shadow: inset 0 2px 10px rgba(0, 0, 0, .5), 0 2px 20px rgba(255, 255, 255, 1);
-    background: #df3341;
-    background: -moz-linear-gradient(left, #df3341 0%, #d4f355 50%, #61c0ec 100%);
-    background: -webkit-gradient(linear, left top, right top, color-stop(0%,#df3341), color-stop(50%,#d4f355), color-stop(100%,#61c0ec));
-    background: -webkit-linear-gradient(left, #df3341 0%,#d4f355 50%,#61c0ec 100%);
-    background: linear-gradient(to right, #df3341 0%,#d4f355 50%,#61c0ec 100%);
-    position:relative;
+.full-circle {
+    border: 10px solid #009FDA;
+    height: 86px;
+    width: 86px;
+    -moz-border-radius:43px;
+    -webkit-border-radius: 43px;
 }
-.dene {
-    width: 140px;
-    height: 140px;
-    margin: -70px 0 0 -70px;
-    border-radius: 100%;
-    box-shadow: inset 0 2px 2px rgba(255, 255, 255, .4), 0 3px 13px rgba(0, 0, 0, .85);
-    background: #f2f6f5;
-    background: -moz-linear-gradient(top, #f2f6f5 0%, #cbd5d6 100%);
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #f2f6f5), color-stop(100%, #cbd5d6));
-    background: -webkit-linear-gradient(top, #f2f6f5 0%, #cbd5d6 100%);
-    background: -o-linear-gradient(top, #f2f6f5 0%, #cbd5d6 100%);
-}
-.denem {
-    width: 120px;
-    height: 120px;
-    margin: -60px 0 0 -60px;
-    border-radius: 100%;
-    background: #cbd5d6;
-    background: -moz-linear-gradient(top, #cbd5d6 0%, #f2f6f5 100%);
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #cbd5d6), color-stop(100%, #f2f6f5));
-    background: -webkit-linear-gradient(top, #cbd5d6 0%, #f2f6f5 100%);
-}
-.denem{
-  text-align:center;
-}
-.denemee{
-  font-size:20px;
-   margin-top:4px;
-}
-.deneme {
-    padding: 3px 10px 0 10px;
-    width: 100%;
-    height: 137px;
-    display: inline-block;
-    margin-left: -50%;
-    margin-top: -57%;
-    text-shadow: 1px 1px 1px white;
-    font-size: 80px;
+.inner{
+    width: 90%;
+    margin: 0 auto;
     text-align: center;
+    padding-top:2px;
+    font-weight:bolder;
+    color:#009FDA;
 }
-.deneme .big{
-    font-size:50px;
+.pom-component{
+    color:#009FDA;
+    text-align:center;width:86px;
+    margin:30px 0px 0px 26px;
+    padding-left:0px;
 }
-.deneme .small{
-    font-size:18px;
-    height:100%;
-    padding-top:45%;
-    text-align:left !important;
+.pom-title{
+    width:86px;
+     font-weight:bold;
 }
-.deneme .post{
-    font-size:32px !important;
+.weather-pictogram{
+    width:24px;
 }
-.deneme strong {padding:0px 0px 0px 4px; margin-top:-120px;font-size: 34px; }
-.denemen {
-  font-size: 20px;
-  margin:-20px 0px 0px 0px;
+.smallfont{
+    font-size:11px;
+    padding-top:0px;
 }
-.unit{
-    font-size:20px;
+.normal-line div{
+    line-height:normal;
 }
-.value{
-    margin-top:-6px;
-}
+
+
 .pulldown{
     background: -moz-linear-gradient(top,  rgba(125,185,232,1) 0%, rgba(125,185,232,0) 94%); /* FF3.6+ */
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(125,185,232,1)), color-stop(94%,rgba(125,185,232,0))); /* Chrome,Safari4+ */

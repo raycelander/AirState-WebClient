@@ -27,35 +27,31 @@ var PointOfMeasureComponent = React.createClass({
     },
     render: function () {
         return (
-            <div className="col-xs-6 col-sm-3 thermometer">
-                <div className="de">
-                    <div className="den">
-                      <div className="dene">
-                        <div className="denem">
-                          <div className="denemee">{this.props.station}</div>
-                          <div className="deneme" onClick={this.handleClick}>
-                                { this.state.defaultView ?
-                                    <div>  
-                                        <div className="value">
-                                            <span className="big" id="currentTempPre">{this.state.currentTempPre}</span>
-                                            <span className="post">.</span>
-                                            <span className="post" id="currentTempPost">{this.state.currentTempPost}</span>
-                                            <span className="unit">&nbsp;&deg;C</span>
-                                        </div>
-                                        <div className="denemen">
-                                          <span id="currentHum">{this.state.displayHum}</span><span> %</span>
-                                        </div>
-                                    </div>
-                               : <div className="small">
-                                    <div><b>&nbsp;&#8679;&nbsp;</b>{this.state.displayTempMax.val}°<span>&nbsp;&nbsp;</span><span>{this.state.displayTempMax.time}</span></div>
-                                    <div><b>&nbsp;&#8681;&nbsp;</b>{this.state.displayTempMin.val}°<span>&nbsp;&nbsp;</span><span>{this.state.displayTempMin.time}</span></div>
-                               </div> }
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                </div>
-            </div>
+		    <div className="col-xs-6 col-sm-3 pom-component">
+				<div className="full-circle" onClick={this.handleClick}>
+				{ this.state.defaultView ?
+				<div>
+					<div className="inner">
+						<img src="svg/sunny.svg" className="weather-pictogram"/>
+					    <span id="currentTempPre">{this.state.currentTempPre}</span>
+                        <span>.</span>
+                        <span id="currentTempPost">{this.state.currentTempPost}</span>
+                        <span>&nbsp;&deg;C</span>
+					</div>
+					<div className="inner smallfont">
+					  <span id="currentHum">{this.state.displayHum}</span><span> %</span>
+					</div>
+					</div>
+				: <div className="inner normal-line">
+					<div className="smallfont">{this.state.displayTempMax.time}</div>
+				    <div>{this.state.displayTempMax.val}°</div>
+					<hr />
+				    <div>{this.state.displayTempMin.val}°</div>
+					<div className="smallfont">{this.state.displayTempMin.time}</div>
+				  </div> }
+				  </div>
+				  <div className="pom-title">{this.props.station}</div>
+			</div>
         );
     },
 	updateData: function(){

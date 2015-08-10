@@ -7,7 +7,7 @@
               <div className="row pulldown" ref="pulldown"></div>
               <div className="row">
                 <div className="col-md-1 header">
-                      <img src="svg/airstate_full.svg" width="300" />
+                      <img src="svg/airstate_full.svg" height="86" />
                  </div>
               </div>
               <div className="row">

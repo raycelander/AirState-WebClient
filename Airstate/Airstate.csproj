@@ -84,6 +84,7 @@
     <Content Include="res\screen\android\splash-hdpi.png" />
     <Content Include="res\screen\android\splash-xhdpi.png" />
     <Content Include="splash.png" />
+    <Content Include="svg\sunny.svg" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>

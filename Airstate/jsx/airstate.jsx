@@ -12,6 +12,7 @@
               </div>
               <div className="row">
           			<PointOfMeasureComponent station="Aussen"/>
+					<PointOfMeasureComponent station="Wohnen"/>
               </div>      
               <div className="row">	
                 <div className="col-md-12">

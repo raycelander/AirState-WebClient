@@ -33,13 +33,13 @@ var PointOfMeasureComponent = React.createClass({
 				<div>
 					<div className="inner">
 						<img src="svg/sunny.svg" className="weather-pictogram"/>
-					    <span id="currentTempPre">{this.state.currentTempPre}</span>
+					    <span id={'currentTempPre'+this.props.station}>{this.state.currentTempPre}</span>
                         <span>.</span>
-                        <span id="currentTempPost">{this.state.currentTempPost}</span>
+                        <span id={'currentTempPost'+this.props.station}>{this.state.currentTempPost}</span>
                         <span>&nbsp;&deg;C</span>
 					</div>
 					<div className="inner smallfont">
-					  <span id="currentHum">{this.state.displayHum}</span><span> %</span>
+					  <span id={'currentHum'+this.props.station}>{this.state.displayHum}</span><span> %</span>
 					</div>
 					</div>
 				: <div className="inner normal-line">
@@ -56,7 +56,9 @@ var PointOfMeasureComponent = React.createClass({
     },
 	updateData: function(){
         var app = this;
+		var pom = this.props.station;
         new Measurements().getCurrent(this.props.station).then(function(result){
+
             var temp =  result.temp.toString();
             var tempPre = temp.substring(0,temp.indexOf("."));
             var tempPost = temp.substring(temp.indexOf(".")+1);
@@ -87,9 +89,9 @@ var PointOfMeasureComponent = React.createClass({
               prefix : '', 
               suffix : '' 
             };
-        var currentTempPreCounter = new CountUp("currentTempPre", 0, parseInt(this.state.currentTempPre), 0, 1.5, options);
-        var currentTempPostCounter = new CountUp("currentTempPost", 0, parseInt(this.state.currentTempPost), 0, 1.5, options);
-        var currentHumCounter = new CountUp("currentHum", 0, parseInt(this.state.currentHum), 0, 1.5, options);
+        var currentTempPreCounter = new CountUp("currentTempPre"+this.props.station, 0, parseInt(this.state.currentTempPre), 0, 1.5, options);
+        var currentTempPostCounter = new CountUp("currentTempPost"+this.props.station, 0, parseInt(this.state.currentTempPost), 0, 1.5, options);
+        var currentHumCounter = new CountUp("currentHum"+this.props.station, 0, parseInt(this.state.currentHum), 0, 1.5, options);
         var refreshIntervalId = setInterval(function(){ 
             currentTempPreCounter.start();
             currentTempPostCounter.start();

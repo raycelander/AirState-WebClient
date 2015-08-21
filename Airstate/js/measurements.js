@@ -8,7 +8,19 @@ var Measurements = function(){
         getMeasurementsByStation : Measurements.prototype.getMeasurementsByStation,
         getMeasurements : Measurements.prototype.getMeasurements,
         getPeakTemp : Measurements.prototype.getPeakTemp,
+        getPoms : Measurements.prototype.getPoms 
     }
+};
+
+Measurements.prototype.getPoms = function(){
+    return new Promise(
+      function(resolve, reject){
+        restUrl = "https://airstate.firebaseio.com/measurements/.json?shallow=true";
+          $.get(restUrl, function(data) {
+            resolve(data);
+          });
+      }
+    );
 };
 
 Measurements.prototype.getMeasurements = function(){

@@ -45,11 +45,10 @@ var HighchartsBar = React.createClass({
         });
   },
   componentWillReceiveProps: function () {
+    console.log("props received");
     this.updateData();
   },
-  componentDidMount: function() {
-    this.updateData();
-  },
+
   getDefaultProps: function () {
       return {
           measurement: 'temp'
@@ -61,6 +60,7 @@ var HighchartsBar = React.createClass({
     );
   },
   updateData: function(){
+      console.log("update chart");
       var app = this;
        new Measurements().getMeasurements().then(function(data){
             dataSeries = new Array();   

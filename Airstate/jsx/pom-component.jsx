@@ -18,6 +18,7 @@ var PointOfMeasureComponent = React.createClass({
       this.updateData();
     },
     componentWillReceiveProps: function () {
+        console.log("pom props received");
         this.updateData();
     }, 
     getDefaultProps: function () {
@@ -55,6 +56,7 @@ var PointOfMeasureComponent = React.createClass({
         );
     },
 	updateData: function(){
+        console.log("updateing pom data..");
         var app = this;
 		var pom = this.props.station;
         new Measurements().getCurrent(this.props.station).then(function(result){

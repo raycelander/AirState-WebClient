@@ -44,23 +44,21 @@ var HighchartsBar = React.createClass({
             });
         });
   },
+  componentWillMount: function () {
+     // this.updateData();
+  },
   componentWillReceiveProps: function () {
-    console.log("props received");
+    console.log("chart: props received for " + this.props.measurement);
     this.updateData();
   },
 
-  getDefaultProps: function () {
-      return {
-          measurement: 'temp'
-      }
-  },
   render: function() {
     return (
       React.DOM.div({className: "chart", ref: "chartNode"})
     );
   },
   updateData: function(){
-      console.log("update chart");
+      console.log("chart: update " + this.props.measurement);
       var app = this;
        new Measurements().getMeasurements().then(function(data){
             dataSeries = new Array();   
@@ -68,13 +66,13 @@ var HighchartsBar = React.createClass({
             var measurement = app.props.measurement;
             var unit;
             if (measurement == "temp"){
-                measurementTitle = 'Temperature';
+                measurementTitle = 'Temperatur';
                 unit = "°C"
             }else if (measurement == "hum"){
-                measurementTitle = 'Humidity';
+                measurementTitle = 'Luftfeuchtigkeit';
                 unit=  "%";
             }else if (measurement == "hpa"){
-                measurementTitle = 'Air Pressure';
+                measurementTitle = 'Luftdruck';
                 unit = "hPa";
             }
 
